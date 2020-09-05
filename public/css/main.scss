@@ -1,0 +1,123 @@
+$gfred: #ed1c16;
+$gfredhover: #b80000;
+$gfgreen: #1dbb33;
+$gfgreenhover: #1a992a;
+$gfyellow: #F6CB16;
+$gfyellowhover: #c27d16;
+$gfwhite: #fff;
+$gflightgrey: #eeeeee;
+$gfgrey: #777;
+$gfmidgrey: #dedede;
+$gfblack: #000000;
+$gfblue: #17A1D6;
+
+body {
+  background-color: $gfwhite;
+}
+
+.homepage-hero {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0)), url("../img/gf_hero.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+
+a, p, h1, h2, h3, h4, h5, h6, span, label, input, placeholder, li, textarea {
+  font-family: 'Inter', sans-serif;
+}
+
+.fw100 {
+  font-weight: 100;
+}
+
+.fw400 {
+  font-weight: 400;
+}
+
+.fw700 {
+  font-weight: 700;
+}
+
+.fw900 {
+  font-weight: 900;
+}
+
+.ts {
+  text-shadow: 0 0 10px black;
+}
+
+label {
+margin-bottom: 3px;
+}
+
+.homepage-hero input {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border-radius: 20px;
+  border: none;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.btn-hero {
+  background-color: $gfred;
+  color: white;
+  font-weight: 700;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.btn-hero:hover {
+  background-color: $gfredhover;
+  color: white;
+}
+
+.nav-logo {
+  max-width: 100px;
+}
+
+.section-head {
+  font-family: 'Shadows Into Light Two', cursive;
+}
+
+.min-vh-95 {
+  min-height: 95vh !important;
+}
+
+.min-vh-90 {
+  min-height: 90vh !important;
+}
+
+.min-vh-85 {
+  min-height: 85vh !important;
+}
+
+.min-vh-80 {
+  min-height: 80vh !important;
+}
+
+.bg-light-grey {
+  background-color: $gflightgrey ;
+}
+
+.text-green{
+  color: $gfgreen;
+}
+
+.toast {
+  z-index: 999999;
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 20px !important;
+  background-color: white;
+  border: 2px solid $gfred;
+  width: 600px !important;
+}
