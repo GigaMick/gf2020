@@ -13,21 +13,21 @@
                         @csrf
                         <div class="input-group mb-3">
                             <label>What's your first name?</label>
-                            <input type="text" name="firstname" class="" placeholder="Eg Clark Kent" value="" id="">
+                            <input type="text" name="firstname" class="" placeholder="Eg Clark Kent" value="" id="" required>
                         </div>
 
                         <div class="input-group mb-3">
                             <label>What's your surname?</label>
-                            <input type="text" name="surname" class="" placeholder="Eg Clark Kent" value="" id="">
+                            <input type="text" name="surname" class="" placeholder="Eg Clark Kent" value="" id="" required>
                         </div>
 
                         <div class="input-group mb-3">
                             <label>And your email address?</label>
-                            <input type="email" name="email" class="" placeholder="Eg gal@wonderwoman.com" value="" id="">
+                            <input type="email" name="email" class="" placeholder="Eg gal@wonderwoman.com" value="" id="" required>
                         </div>
                         <div class="input-group mb-3">
                             <label>Now pick a secure password</label>
-                            <input type="password" name="password" class="" placeholder="Min 8 characters" value="" id="">
+                            <input type="password" name="password" class="" placeholder="Min 8 characters" value="" id="" required>
                         </div>
                         <div class="input-group mb-3">
 

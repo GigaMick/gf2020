@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-12 col-md-6 offset-md-3">
                             <div class="hero-form">
-                                <form class="" method="" action="">
+                                <form class="" method="post" action="/search">
                                     @csrf
                                     <div class="input-group">
                                         <input type="text" name="postcode" class="" placeholder="Your full postcode"

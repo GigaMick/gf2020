@@ -37,10 +37,16 @@
                 <div class="col-12">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <img src="{{secure_asset('img/header-logo-green.png')}}" class="nav-logo">
+                            <a href="/"><img src="{{secure_asset('img/header-logo-green.png')}}" class="nav-logo"></a>
                         </div>
                         <div class="links">
                             @auth
+                                @hasrole('cook')
+                                <a href="/dashboard" class="px-2">Dashboard</a>
+                                <a href="/meals/add-meal-name" class="px-2">Add Meal</a>
+                                <a href="/logout" class="px-2">Schedule</a>
+                                <a href="/logout" class="px-2">Go Online</a>
+                                @endhasrole
                                 <a href="/logout" class="btn-hero px-5">Logout</a>
                             @else
                                 <a href="/get-started" class="btn-hero px-5">Sign Up</a>

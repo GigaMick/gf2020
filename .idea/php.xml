@@ -108,6 +108,10 @@
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
       <path value="$PROJECT_DIR$/vendor/jcf/geocode" />
       <path value="$PROJECT_DIR$/vendor/twilio/sdk" />
+      <path value="$PROJECT_DIR$/vendor/propaganistas/laravel-phone" />
+      <path value="$PROJECT_DIR$/vendor/giggsey/locale" />
+      <path value="$PROJECT_DIR$/vendor/league/iso3166" />
+      <path value="$PROJECT_DIR$/vendor/giggsey/libphonenumber-for-php" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

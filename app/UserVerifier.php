@@ -2,6 +2,7 @@
 
     namespace App;
 
+    use Illuminate\Support\Str;
     use Mail;
     use App\Mail\cookVerification;
     use Geocode;
@@ -27,10 +28,13 @@
             $mobile = $this->formatMobile($mobile);
 
             if (!preg_match('/^\+[1-9]\d{5,14}$/', $mobile)) {
-                throw new InvalidArgumentException('Invalid mobile number format');
+                return "1";
             }
 
-            return $mobile;
+            if(Str::length($mobile) != 13){
+                return "2";
+            }
+
         }
 
         /**

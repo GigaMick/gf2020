@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\GetGeography;
 use App\SMS;
+use App\UserVerifier;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\User;
@@ -10,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Jcf\Geocode\Geocode;
+use libphonenumber\PhoneNumber;
 
 
 class OnboardingController extends Controller
@@ -72,10 +75,12 @@ class OnboardingController extends Controller
     {
         $user = Auth::user();
 
-        $postcode = str_replace(' ', '', $request->postcode);
-        $postcode = strtoupper($postcode);
+        $geog = new GetGeography();
+        $address = $geog->getLatLng($request->postcode);
 
-        $address = Geocode::make()->address($postcode);
+        $lat = $address->response->geometry->location->lat;
+        $lng = $address->response->geometry->location->lng;
+
         foreach ($address->response->address_components as $a) {
 
             if ($a->types[0] == "postal_town") {
@@ -91,7 +96,10 @@ class OnboardingController extends Controller
                 $user->country = $a->short_name;
             }
         }
+        $user->lat = $lat;
+        $user->lng = $lng;
         $user->house_number = $request->house_number;
+
         $user->save();
 
 
@@ -100,6 +108,7 @@ class OnboardingController extends Controller
 
     public function storeConfirmedCookAddress(Request $request)
     {
+
         $user = Auth::user();
         $user->house_number = $request->house_number;
         $user->address_1 = $request->address_1;
@@ -114,11 +123,26 @@ class OnboardingController extends Controller
 
     public function cookMobile()
     {
-        return view('onboarding/OB_Cook_Mobile');
+        $error = "";
+        return view('onboarding/OB_Cook_Mobile', compact('error'));
     }
 
     public function storeCookMobile(Request $request)
     {
+
+        $mobile = $request->mobile;
+        $uv = new UserVerifier();
+        $p = $uv->validateMobile($mobile);
+
+        if ($p == 2) {
+            $error = "Phone number the wrong length. Maybe you missed a digit?";
+            return view('onboarding/OB_Cook_Mobile', compact('mobile', 'error'));
+        }
+
+        if ($p == 1) {
+            $error = "Invalid phone number format";
+            return view('onboarding/OB_Cook_Mobile', compact('mobile', 'error'));
+        }
 
         $user = Auth::user();
         $user->mobile = $request->mobile;
