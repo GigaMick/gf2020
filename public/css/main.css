@@ -109,4 +109,17 @@ input, textarea {
   width: 600px !important;
 }
 
+.signpost {
+  color: black;
+  transition-duration: 350ms;
+  text-shadow: 0 0 0 white;
+  padding: 10px;
+}
+
+.signpost:hover {
+  color: white;
+  text-decoration: none;
+  text-shadow: 0 0 10px black;
+}
+
 /*# sourceMappingURL=main.css.map */

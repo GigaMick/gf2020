@@ -2,15 +2,23 @@
 
 @section('content')
     <section class="min-vh-100">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row min-vh-80">
-                <div class="col-12 col-md-6 d-flex align-items-center justify-content-center flex-column">
-                    <h1 class="section-head">I want to cook & sell</h1>
-                    <a href="/ob/cook-basic-details" class="btn-hero py-3 px-5">Continue</a>
+                <div class="col-12 col-md-4 offset-md-1 d-flex align-items-center justify-content-between flex-row">
+                    <div class="">
+                        <h1 class="fw700"><a href="/ob/cook-basic-details" class="signpost">Sign up to cook</a></h1>
+                    </div>
+                    <div class="">
+                        <h1 class="">-></h1>
+                    </div>
                 </div>
-                <div class="col-12 col-md-6 d-flex align-items-center justify-content-center flex-column bg-light-grey">
-                    <h1 class="section-head">I want to buy & eat</h1>
-                    <a href="/ob/customer-1" class="btn-hero py-3 px-5">Continue</a>
+                <div class="col-12 col-md-4 d-flex offset-md-2 align-items-center justify-content-between flex-row">
+                        <div class="">
+                            <h1 class="fw700"><a href="/" class="signpost">Sign up to eat</a></h1>
+                        </div>
+                        <div class="">
+                            <h1 class="">-></h1>
+                        </div>
                 </div>
             </div>
         </div>
