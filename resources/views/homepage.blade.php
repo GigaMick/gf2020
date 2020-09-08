@@ -11,8 +11,17 @@
                                 <img src="{{secure_asset('img/header-logo-green.png')}}" class="nav-logo">
                             </div>
                             <div class="links">
-                                <a href="/get-started" class="btn-hero px-5">Sign Up</a>
-                            </div>
+                                @auth
+                                    @hasrole('cook')
+                                    <a href="/dashboard" class="px-2">Dashboard</a>
+                                    <a href="/meals/add-meal-name" class="px-2">Add Meal</a>
+                                    <a href="/logout" class="px-2">Schedule</a>
+                                    <a href="/logout" class="px-2">Go Online</a>
+                                    @endhasrole
+                                    <a href="/logout" class="btn-hero px-5">Logout</a>
+                                @else
+                                    <a href="/get-started" class="btn-hero px-5">Sign Up</a>
+                                @endauth                            </div>
                         </div>
                     </div>
                 </div>
@@ -32,8 +41,8 @@
                                 <form class="" method="post" action="/search">
                                     @csrf
                                     <div class="input-group">
-                                        <input type="text" name="postcode" class="" placeholder="Your full postcode"
-                                               value="" id="">
+                                        <input type="text" name="postcode" class="text-center" placeholder="Your full postcode"
+                                               value="{{$postcode}}" id="">
                                         <input type="submit" name="" class="btn-hero" placeholder="" value="Search"
                                                id="">
                                     </div>
@@ -60,7 +69,7 @@
                     <h1 class="section-head">Like to eat?</h1>
                     <h4 class="fw400 mb-4">
                         Tired of the standard fast food options? Get hearty, healthy and delicious
-                        home made meals by home cooks who are passionate about what they do.
+                        home made meals by local cooks who are passionate about what they do.
                     </h4>
                     <a href="/like-to-cook" class="btn-hero mt-4 px-5">Learn about eating with GetFed</a>
                 </div>

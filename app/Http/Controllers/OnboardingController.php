@@ -22,20 +22,21 @@ class OnboardingController extends Controller
         return view('onboarding.choose-path');
     }
 
-    public function cookBasicDetails()
+    public function BasicDetails($token)
     {
-        return view('onboarding/OB_Cook_Basic_Details');
+
+        return view('onboarding/Basic_Details', compact('token'));
     }
 
-    public function storeCookBasicDetails(Request $request)
+    public function storeBasicDetails(Request $request)
     {
 
         $referralcode = \Illuminate\Support\Str::random('6');
 
         $user = new User();
         $user->email = $request->email;
-        $user->firstname = $request->firstname;
-        $user->surname = $request->surname;
+        $user->firstname = "";
+        $user->surname = "";
         $user->password = Hash::make($request->password);
         $user->pin = rand(00000, 99999);
         $user->token = Str::uuid();
@@ -43,35 +44,61 @@ class OnboardingController extends Controller
         $user->address_verification_pin = rand(00000, 99999);
         $user->referral_code = $referralcode;
         $user->status = 99;
+        if($request->type == "cook") {$user->is_cook = true ;}
         $user->save();
 
-        $user->assignRole('cook');
+        // Only cooks get the cook role... obviously
+        if($request->type == "cook"){$user->assignRole('cook');}
+
+        // everyone who signs up should have a customer role
+        $user->assignRole('customer');
+
         Auth::login($user);
 
-        return redirect('/ob/cook-display-name');
+        return redirect('/ob/display-name');
     }
 
-    public function cookDisplayName()
-    {
-        return view('onboarding/OB_Cook_Display_Name');
-    }
-
-    public function storeCookDisplayName(Request $request)
+    public function DisplayName()
     {
         $user = Auth::user();
+
+        if($user->is_cook) {
+            $message = "This is how you'll be known on the platform. Eg, in search results etc";
+        } else {
+            $message = "This will be your display name. For example if you write reviews etc";
+        }
+
+        return view('onboarding/Display_Name', compact('message', 'user'));
+    }
+
+    public function storeDisplayName(Request $request)
+    {
+        $user = Auth::user();
+        $user->firstname = $request->firstname ?? "";
+        $user->surname = $request->surname ?? "";
         $user->username = $request->username;
         $user->save();
 
-        return redirect('ob/cook-address');
+        return redirect('ob/address');
     }
 
-    public function cookAddress()
+    public function Address()
     {
+        $user = Auth::user();
 
-        return view('onboarding/OB_Cook_Address');
+        if($user->is_cook) {
+            $message = "Where are you cooking?";
+            $message2 = "We need your address to arrange deliveries and collections";
+
+        } else {
+            $message = "Where will we be delivering?";
+            $message2 = "We need your address so we know where to deliver";
+        }
+
+        return view('onboarding/Address', compact('message', 'message2'));
     }
 
-    public function storeCookAddress(Request $request)
+    public function storeAddress(Request $request)
     {
         $user = Auth::user();
 
@@ -103,10 +130,10 @@ class OnboardingController extends Controller
         $user->save();
 
 
-        return view('onboarding/OB_Cook_Confirm_Address', compact('user'));
+        return view('onboarding/Confirm_Address', compact('user'));
     }
 
-    public function storeConfirmedCookAddress(Request $request)
+    public function storeConfirmedAddress(Request $request)
     {
 
         $user = Auth::user();
@@ -117,17 +144,17 @@ class OnboardingController extends Controller
         $user->postcode = $request->postcode;
         $user->save();
 
-        return redirect('/ob/cook-mobile');
+        return redirect('/ob/mobile');
     }
 
 
-    public function cookMobile()
+    public function Mobile()
     {
         $error = "";
-        return view('onboarding/OB_Cook_Mobile', compact('error'));
+        return view('onboarding/Mobile', compact('error'));
     }
 
-    public function storeCookMobile(Request $request)
+    public function storeMobile(Request $request)
     {
 
         $mobile = $request->mobile;
@@ -136,12 +163,12 @@ class OnboardingController extends Controller
 
         if ($p == 2) {
             $error = "Phone number the wrong length. Maybe you missed a digit?";
-            return view('onboarding/OB_Cook_Mobile', compact('mobile', 'error'));
+            return view('onboarding/Mobile', compact('mobile', 'error'));
         }
 
         if ($p == 1) {
             $error = "Invalid phone number format";
-            return view('onboarding/OB_Cook_Mobile', compact('mobile', 'error'));
+            return view('onboarding/Mobile', compact('mobile', 'error'));
         }
 
         $user = Auth::user();
@@ -151,33 +178,33 @@ class OnboardingController extends Controller
         $pin = new SMS();
         $pin->sendpin($user->mobile, $user->pin);
 
-        return redirect('ob/cook-pin');
+        return redirect('ob/pin');
     }
 
-    public function cookPin()
+    public function Pin()
     {
-        return view('onboarding/OB_Cook_Pin');
+        return view('onboarding/Pin');
     }
 
-    public function storeCookPin(Request $request)
+    public function storePin(Request $request)
     {
         $user = Auth::user();
         $pin = $request->pin;
         if ($pin == $user->pin) {
-            return redirect('ob/cook-summary');
+            return redirect('ob/summary');
         } else {
             return back()->with('success', 'Sorry that PIN is incorrect');
         }
     }
 
-    public function cookSummary()
+    public function Summary()
     {
-        return view('onboarding/OB_Cook_Summary');
+        return view('onboarding/Summary');
     }
 
-    public function storeCookSummary()
+    public function storeSummary()
     {
-        return redirect('ob/cook-summary');
+        return redirect('ob/summary');
     }
 
 

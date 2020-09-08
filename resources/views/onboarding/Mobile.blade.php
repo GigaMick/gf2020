@@ -12,13 +12,13 @@
                 <div class="card p-4 shadow">
                     <h3 class="section-head mb-3">4. What's your number?</h3>
 
-                    <form class="" method="post" action="/ob/store-cook-mobile">
+                    <form class="" method="post" action="/ob/store-mobile">
                         @csrf
 
                         <div class="input-group mb-3">
-                            <label class="w-100 mb-1">Please enter your mobile number</label>
-                            <p class="small text-muted d-block mb-2 mt-0"><i class="fas fa-info-circle"></i> We need
-                                this to send you real time notifications about orders</p>
+                            <label class="w-100 mb-0">Please enter your mobile number</label>
+                            <p class="small text-muted d-block mb-3 mt-0"><i class="fas fa-info-circle"></i> We need
+                                this to send you updates about your orders</p>
                             @if ($error != "")
                                 <p class="text-danger">{{$error}}</p>
                             @endif

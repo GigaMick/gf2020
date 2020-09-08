@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/', 'IndexController@index');
 
 Auth::routes();
 
@@ -26,29 +24,34 @@ Route::post('/search','SearchController@search');
 // Onboarding
 Route::get('/get-started', 'OnboardingController@OBChoosePath');
 
-Route::get('/ob/cook-basic-details', 'OnboardingController@cookBasicDetails');
-Route::post('/ob/store-cook-basic-details', 'OnboardingController@storeCookBasicDetails');
+// Onboarding cooks
+Route::get('/{token}/basic-details', 'OnboardingController@BasicDetails');
+Route::post('/ob/store-basic-details', 'OnboardingController@storeBasicDetails');
 
-Route::get('/ob/cook-display-name', 'OnboardingController@cookDisplayName');
-Route::post('/ob/store-cook-display-name', 'OnboardingController@storeCookDisplayName');
+Route::get('/ob/display-name', 'OnboardingController@DisplayName');
+Route::post('/ob/store-display-name', 'OnboardingController@storeDisplayName');
 
-Route::get('/ob/cook-address', 'OnboardingController@cookAddress');
-Route::post('/ob/store-cook-address', 'OnboardingController@storeCookAddress');
+Route::get('/ob/address', 'OnboardingController@Address');
+Route::post('/ob/store-address', 'OnboardingController@storeAddress');
 
-Route::post('/ob/store-confirmed-cook-address', 'OnboardingController@storeConfirmedCookAddress');
+Route::post('/ob/store-confirmed-address', 'OnboardingController@storeConfirmedAddress');
 
-Route::get('/ob/cook-mobile', 'OnboardingController@cookMobile');
-Route::post('/ob/store-cook-mobile', 'OnboardingController@storeCookMobile');
+Route::get('/ob/mobile', 'OnboardingController@Mobile');
+Route::post('/ob/store-mobile', 'OnboardingController@storeMobile');
 
-Route::get('/ob/cook-pin', 'OnboardingController@cookPin');
-Route::post('/ob/store-cook-pin', 'OnboardingController@storeCookPin');
+Route::get('/ob/pin', 'OnboardingController@Pin');
+Route::post('/ob/store-pin', 'OnboardingController@storePin');
 
-Route::get('/ob/cook-summary', 'OnboardingController@cookSummary');
-Route::post('/ob/store-cook-summary', 'OnboardingController@storeCookSummary');
+Route::get('/ob/summary', 'OnboardingController@Summary');
+Route::post('/ob/store-summary', 'OnboardingController@storeSummary');
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-//DASHBOARD
+// Onboarding customers
+Route::get('/ob/customer-basic-details', 'CustomerOnboardingController@customerBasicDetails');
+Route::post('/ob/store-customer-basic-details', 'CustomerOnboardingController@storeCustomerBasicDetails');
+
+// DASHBOARD
 Route::get('/dashboard','DashboardController@index');
 
 //CREATE MEAL

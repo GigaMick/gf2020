@@ -10,7 +10,7 @@
                 <div class="card p-4 shadow">
                     <h3 class="section-head mb-3">3. Check the details</h3>
 
-                    <form class="" method="post" action="/ob/store-confirmed-cook-address">
+                    <form class="" method="post" action="/ob/store-confirmed-address">
                         @csrf
                         <div class="input-group mb-3">
                             <label>House / flat number?</label>

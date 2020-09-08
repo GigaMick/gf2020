@@ -8,9 +8,10 @@
                     <i class="fas fa-circle text-green mr-2"></i><i class="fas text-green fa-circle mr-2"></i><i class="fas text-green fa-circle mr-2"></i><i class="far fa-circle mr-2"></i><i class="far fa-circle mr-2"></i><i class="far fa-circle mr-2"></i>
                 </div>
                 <div class="card p-4 shadow">
-                    <h3 class="section-head mb-3">3. Where are you cooking?</h3>
+                    <h3 class="section-head mb-1">3. {{$message}}</h3>
+                    <p class="small text-muted d-block mb-3 mt-0"><i class="fas fa-info-circle"></i> {{$message2}}</p>
 
-                    <form class="" method="post" action="/ob/store-cook-address">
+                    <form class="" method="post" action="/ob/store-address">
                         @csrf
 
                         <div class="input-group mb-3">
@@ -19,7 +20,6 @@
                                 <input type="" name="house_number" class="" placeholder="Eg, 47" value="" id="">
                             </div>
                             <label class="w-100 mb-1">Please enter your full postcode</label>
-                            <p class="small text-muted d-block mb-2 mt-0"><i class="fas fa-info-circle"></i> We need this to arrange deliveries and collections from your home</p>
                             <input type="text" name="postcode" class="" placeholder="Eg G37 4ED" value="" id="">
                         </div>
                         <div class="input-group mb-3">

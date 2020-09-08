@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\GetGeography;
+use App\RadiusSearch;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
@@ -14,7 +15,11 @@ class SearchController extends Controller
         $lat = $address->response->geometry->location->lat;
         $lng = $address->response->geometry->location->lng;
 
+        $radius = env('SEARCH_RADIUS');
+        $results = new RadiusSearch();
+        $r = $results->get_meals_near($lat, $lng, $radius);
 
+        dd($r);
 
 
 

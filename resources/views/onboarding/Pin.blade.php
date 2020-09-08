@@ -10,12 +10,12 @@
                 <div class="card p-4 shadow">
                     <h3 class="section-head mb-3">4. Let's make sure that's correct</h3>
 
-                    <form class="" method="post" action="/ob/store-cook-pin">
+                    <form class="" method="post" action="/ob/store-pin">
                         @csrf
 
                         <div class="input-group mb-3">
-                            <label class="w-100 mb-1">Please verify your phone number</label>
-                            <p class="small text-muted d-block mb-2 mt-0"><i class="fas fa-info-circle"></i> We just sent you a PIN code. Enter it below</p>
+                            <label class="w-100 mb-0">Please verify your phone number</label>
+                            <p class="small text-muted d-block mb-3 mt-0"><i class="fas fa-info-circle"></i> We just sent you a PIN code. Enter it below</p>
                             <input type="text" name="pin" class="" placeholder="Eg 12345" value="" id="">
                         </div>
                         <div class="input-group mb-3">
