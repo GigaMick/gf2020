@@ -13,18 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'IndexController@index');
+//Route::get('/', 'IndexController@index');
 
 Auth::routes();
 
-// Search
+// Pre launch landing page
+Route::view('/', 'landing-pre-launch');
 
+// Search
 Route::post('/search','SearchController@search');
 
 // Onboarding
 Route::get('/get-started', 'OnboardingController@OBChoosePath');
 
-// Onboarding cooks
 Route::get('/{token}/basic-details', 'OnboardingController@BasicDetails');
 Route::post('/ob/store-basic-details', 'OnboardingController@storeBasicDetails');
 
@@ -46,10 +47,6 @@ Route::get('/ob/summary', 'OnboardingController@Summary');
 Route::post('/ob/store-summary', 'OnboardingController@storeSummary');
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
-// Onboarding customers
-Route::get('/ob/customer-basic-details', 'CustomerOnboardingController@customerBasicDetails');
-Route::post('/ob/store-customer-basic-details', 'CustomerOnboardingController@storeCustomerBasicDetails');
 
 // DASHBOARD
 Route::get('/dashboard','DashboardController@index');

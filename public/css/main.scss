@@ -22,7 +22,7 @@ body {
 }
 
 a, p, h1, h2, h3, h4, h5, h6, span, label, input, placeholder, li, textarea {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .fw100 {
@@ -31,6 +31,10 @@ a, p, h1, h2, h3, h4, h5, h6, span, label, input, placeholder, li, textarea {
 
 .fw400 {
   font-weight: 400;
+}
+
+.fw600 {
+  font-weight: 600;
 }
 
 .fw700 {
@@ -133,6 +137,19 @@ input, textarea {
   color: white;
   text-decoration: none;
   text-shadow: 0 0 10px black;
+}
 
+//Landing page
 
+.hero-text {
+  text-align: center;
+  color: white;
+  font-weight: 900;
+  text-shadow: 1px 1px 5px black ;
+}
+
+.hero-text-sub {
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 5px black ;
 }
