@@ -61,6 +61,23 @@ margin-bottom: 3px;
   border: none;
 }
 
+.footer-hero input {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border-radius: 20px;
+  border: none;
+}
+
+.footer-hero h4 {
+  color: black !important;
+  text-shadow: none !important;
+}
+
+.footer-hero input {
+  border: 1px solid grey;
+}
+
 input, textarea {
   display: block;
   width: 100%;
@@ -152,4 +169,8 @@ input, textarea {
   text-align: center;
   color: white;
   text-shadow: 1px 1px 5px black ;
+}
+
+.max-height-x {
+  max-height: 600px;
 }

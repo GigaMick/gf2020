@@ -27,13 +27,13 @@
                 </div>
             </div>
         </div>
-        <div class="container py-5 px-3 px-md-0">
+        <div class="container py-5 px-4  px-md-0">
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="hero-copy">
-                        <h1 class="text-white fw900 ts">The Marketplace For<br>Home Cooked Food</h1>
-                        <h3 class="text-white fw700 ts">Get beautiful home cooked meals<br>from talented cooks near you</h3>
-                        <h5 class="text-white ts fw700 mt-4">Enter your full postcode to find meals near you</h5>
+                        <h2 class="text-white fw900 ts">The Marketplace For<br class="d-none b-md-block"> Home Cooked Food</h2>
+                        <h5 class="text-white fw400 ts">Get beautiful home cooked meals<br class="d-none b-md-block"> from talented cooks near you</h5>
+                        <h5 class="text-white ts fw700 mt-5 mb-4">Enter your postcode<br>to find meals nearby</h5>
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-6 offset-md-3">

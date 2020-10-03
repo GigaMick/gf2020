@@ -16,6 +16,7 @@
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
             crossorigin="anonymous"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @livewireStyles
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -58,6 +59,7 @@
     </div>
 @endif
 @yield('content')
+@livewireScripts
 <section class="footer bg-dark py-5 mt-4">
 
 </section>
