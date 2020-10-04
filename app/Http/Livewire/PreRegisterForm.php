@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\AddToMailchimp;
 use App\preRegsiteredCooks;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
@@ -50,8 +51,15 @@ font-weight: 400;
         try {
             $response = $sendgrid->send($email);
         } catch (Exception $e) {
-            echo 'Caught exception: '. $e->getMessage() ."\n";
+            echo 'Caught exception: '.$e->getMessage()."\n";
         }
+
+        //        ADD TO MAILCHIMP
+        $x = new AddToMailchimp();
+        $x->addmailchimp($user->email);
+
+        $tag = new AddToMailchimp();
+        $tag->addmailchimptag($user->email, "prereg");
 
     }
 
