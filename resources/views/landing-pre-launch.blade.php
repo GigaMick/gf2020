@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="homepage-hero min-vh-100">
-        <div class="container py-5">
+        <div class="container py-0 py-md-5">
             <div class="row py-5">
                 <div class="col-10 offset-1 col-md-6 offset-md-3">
                     <img src="{{asset('img/gf2.png')}}" class="img-fluid">
