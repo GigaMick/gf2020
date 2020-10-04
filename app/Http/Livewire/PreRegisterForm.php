@@ -12,7 +12,8 @@ use SendGrid\Mail\Mail;
 class PreRegisterForm extends Component
 {
     public $email;
-    public $thanks = "Leave your email below and we'll be in touch about getting you cooking (and earning) on GetFed";
+//    public $thanks = "Leave your email below if you're interested in getting you cooking (and earning) on GetFed";
+    public $thanks = "Interested? Leave your email below.";
 
     public function submit()
     {

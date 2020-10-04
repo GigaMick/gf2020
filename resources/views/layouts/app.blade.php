@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -23,10 +22,17 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;0,900;1,400;1,600&display=swap"
+          rel="stylesheet">
     <script src="https://kit.fontawesome.com/eb48d217fb.js" crossorigin="anonymous"></script>
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('css/main.css?r=').rand(0000,9999) }}" rel="stylesheet">
+
+    @if(env('APP_ENV') == "production")
+        {{--PLAUSIBLE--}}
+        <script async defer data-domain="getfed.net" src="https://plausible.io/js/plausible.js"></script>
+        {{--END PLAUSIBLE--}}
+    @endif
 </head>
 <body>
 @include('toasts')

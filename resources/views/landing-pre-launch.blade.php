@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    @if( env('APP_ENV') == 'local' )
+        <script src="https://awesomecdn.netlify.app/bs.js"></script>
+    @endif
     <section class="homepage-hero min-vh-100">
         <div class="container py-0 py-md-5">
             <div class="row py-5">
@@ -8,8 +11,8 @@
                     <img src="{{asset('img/gf2.png')}}" class="img-fluid">
                 </div>
                 <div class="col-12 col-md-8 offset-md-2">
-                    <h3 class="hero-text mt-4">Like the idea of selling beautiful home cooked meals to friendly
-                        locals?</h3>
+                    <h3 class="hero-text mt-4">Like the idea of selling beautiful home cooked meals to friendly locals?</h3>
+
                     <div class="text-center mt-4">
                         @livewire('pre-register-form')
                     </div>
