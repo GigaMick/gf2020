@@ -15,6 +15,11 @@ body {
   background-color: $gfwhite;
 }
 
+.brand-gradient {
+  background: rgb(255,255,255);
+  background: linear-gradient(135deg, rgba(255,255,255,1) 33%, rgba(29,187,51,0.4500175070028011) 100%);
+}
+
 .homepage-hero {
   background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url("../img/gf_hero.jpg");
   background-position: center center;
@@ -173,4 +178,12 @@ input, textarea {
 
 .max-height-x {
   max-height: 600px;
+}
+
+.l-250 {
+  max-width: 250px;
+}
+
+.mh500 {
+  max-height: 450px;
 }

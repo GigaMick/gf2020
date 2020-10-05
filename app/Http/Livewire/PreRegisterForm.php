@@ -14,7 +14,7 @@ class PreRegisterForm extends Component
 {
     public $email;
 //    public $thanks = "Leave your email below if you're interested in getting you cooking (and earning) on GetFed";
-    public $thanks = "Interested? Leave your email below.";
+    public $thanks = "Sound good? Leave your email below.";
 
     public function submit()
     {

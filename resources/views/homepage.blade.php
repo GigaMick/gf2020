@@ -33,7 +33,7 @@
                     <div class="hero-copy">
                         <h2 class="text-white fw900 ts">The Marketplace For<br class="d-none b-md-block"> Home Cooked Food</h2>
                         <h5 class="text-white fw400 ts">Get beautiful home cooked meals<br class="d-none b-md-block"> from talented cooks near you</h5>
-                        <h5 class="text-white ts fw700 mt-5 mb-4">Enter your postcode<br>to find meals nearby</h5>
+                        <h5 class="text-white ts fw700 mt-5 mb-2">Enter your postcode to find meals nearby</h5>
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-6 offset-md-3">

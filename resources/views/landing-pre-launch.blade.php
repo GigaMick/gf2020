@@ -4,21 +4,39 @@
     @if( env('APP_ENV') == 'local' )
         <script src="https://awesomecdn.netlify.app/bs.js"></script>
     @endif
-    <section class="homepage-hero min-vh-100">
-        <div class="container py-0 py-md-5">
-            <div class="row py-5">
-                <div class="col-10 offset-1 col-md-6 offset-md-3">
-                    <img src="{{asset('img/gf2.png')}}" class="img-fluid">
-                </div>
-                <div class="col-12 col-md-8 offset-md-2">
-                    <h3 class="hero-text mt-4">Like the idea of selling beautiful home cooked meals to friendly locals?</h3>
+    {{--    <section class="homepage-hero min-vh-100">--}}
+    {{--        <div class="container py-0 py-md-5">--}}
+    {{--            <div class="row py-5">--}}
+    {{--                <div class="col-10 offset-1 col-md-6 offset-md-3">--}}
+    {{--                    <img src="{{asset('img/gf2.png')}}" class="img-fluid">--}}
+    {{--                </div>--}}
+    {{--                <div class="col-12 col-md-8 offset-md-2">--}}
+    {{--                    <h3 class="hero-text mt-4">Like the idea of selling beautiful home cooked meals to friendly locals?</h3>--}}
 
-                    <div class="text-center mt-4">
-                        @livewire('pre-register-form')
+    {{--                    <div class="text-center mt-4">--}}
+    {{--                        @livewire('pre-register-form')--}}
+    {{--                    </div>--}}
+    {{--                    <p class="hero-text-sub mt-4"></p>--}}
+    {{--                </div>--}}
+
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </section>--}}
+    <section class="min-vh-100 d-flex align-items-center  bg-light-grey">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 text-center py-5 d-flex align-items-center justify-content-center flex-column">
+                    <div class="row py-4">
+                        <div class="col-12 text-center">
+                            <img src="{{asset('img/header-logo-green.png')}}" class="l-250">
+                        </div>
                     </div>
-                    <p class="hero-text-sub mt-4"></p>
+                    <h4>Do you like the idea of selling beautiful home cooked meals to friendly locals?</h4>
+                    @livewire('pre-register-form')
                 </div>
-
+                <div class="col-6 text-center">
+                    <img src="{{asset('img/meal.png')}}" class="img-fluid">
+                </div>
             </div>
         </div>
     </section>

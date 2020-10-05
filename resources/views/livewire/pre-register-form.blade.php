@@ -1,5 +1,5 @@
 <div>
-    <h4 class="hero-text-sub mt-4 mb-4">{{$thanks}}</h4>
+    <h4 class=" mt-4 mb-4">{{$thanks}}</h4>
 
     <div class="row">
         <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
