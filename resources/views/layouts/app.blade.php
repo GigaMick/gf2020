@@ -40,8 +40,7 @@
 @auth()
     @if(\Illuminate\Support\Facades\Auth::user()->status == 99)
         <div class="activation-banner">
-            <p class="m-0 p-0">Your account is not yet active. To get selling <a href="/cook-activation">click
-                    here.</a></p>
+            <p class="m-0 p-0">Your account is not yet active. <a href="/cook-activation">Click here.</a></p>
         </div>
     @endif
 @endauth

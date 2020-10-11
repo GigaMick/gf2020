@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Meal;
+use App\MealPhoto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class MealController extends Controller
@@ -79,7 +81,6 @@ class MealController extends Controller
 
     public function meal_pic()
     {
-
         return view('/meals/add_meal_pic');
 
     }
@@ -87,8 +88,19 @@ class MealController extends Controller
     public function store_meal_pic(Request $request)
     {
 
+
         $token = session('mealToken');
         $meal = Meal::query()->where('token', $token)->first();
+
+        $user = Auth::user();
+
+        foreach ($request->uploads as $upload) {
+            $image = new MealPhoto();
+            $image->photo = $upload['handle'];
+            $image->user_id = $user->id;
+            $image->meal_id = $token;
+            $image->save();
+        }
 
 
         return redirect('/meals/add-meal-pic');
