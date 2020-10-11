@@ -187,3 +187,15 @@ input, textarea {
 .mh500 {
   max-height: 450px;
 }
+
+.activation-banner {
+  background-color: $gfred;
+  padding: 5px;
+  text-align: center;
+  color: white;
+}
+
+.activation-banner a {
+  color: white;
+  text-decoration: underline;
+}

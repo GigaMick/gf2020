@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.js"
@@ -14,7 +15,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
             crossorigin="anonymous"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+
     @livewireStyles
 
     <!-- Fonts -->
@@ -35,6 +37,14 @@
     @endif
 </head>
 <body>
+@auth()
+    @if(\Illuminate\Support\Facades\Auth::user()->status == 99)
+        <div class="activation-banner">
+            <p class="m-0 p-0">Your account is not yet active. To get selling <a href="/cook-activation">click
+                    here.</a></p>
+        </div>
+    @endif
+@endauth
 @include('toasts')
 @if (! \Request::is('/'))
     <div class="nav py-3">

@@ -25,6 +25,20 @@
                         </div>
 
                         <div class="input-group mb-3">
+                            <label></label>
+                            <input name='tags' class='some_class_name' placeholder='write some tags'
+                                   value='' data-blacklist=''>
+                        </div>
+
+                        <script>
+                            // The DOM element you wish to replace with Tagify
+                            var input = document.querySelector('input[name=tags]');
+
+                            // initialize Tagify on the above input node reference
+                            new Tagify(input)
+                        </script>
+
+                        <div class="input-group mb-3">
                             <input type="submit" name="" class="btn btn-hero py-3 px-5" placeholder=""
                                    value="Save and Continue" id="">
                         </div>
